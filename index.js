@@ -37,3 +37,17 @@ function getGreeting(event){
 const button = document.getElementById('button');
 console.log(button);
 button.addEventListener('mouseenter',getGreeting)
+//--------------------------------------------------
+//При наведені на кнопку Ні - потрібно її приховати (display:'none')
+const noBtn = document.getElementById('no-btn');
+console.log(noBtn);
+
+function hidding(event){
+    console.log(event);
+ //const noBut =event.target;
+ //noBut.style.display = 'none' //(display:'none') приховати подію
+ event.target.removeEventListener('mouseenter',hidding)
+ console.log(test)
+}
+
+noBtn.addEventListener('mouseenter',hidding)
