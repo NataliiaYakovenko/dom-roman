@@ -15,3 +15,16 @@ function getAlert(){
 const btn = document.getElementById('btn')
 console.log(btn);
 btn.addEventListener('click', getAlert)
+//-------------------------------------------------
+/*
+Зробіть кнопку, додайте id
+Напишіть функцію, яка виводит в консоль Привіт
+Навісити обробку події наведення миші на цю кнопку
+*/
+const button = document.getElementById('button');
+console.log(button);
+
+function getGreeting(){
+console.log('Hello');
+}
+button.addEventListener('mouseenter',getGreeting)
