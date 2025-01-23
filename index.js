@@ -1,53 +1,15 @@
-console.log(this);// window object
-//alert('hello')// равноціне window.alert('hello')
-//----------------------------------------------------
-console.dir(document);
-/*
-1. Всі документи на сторінці є окремі об'єкти
-2. Всі елементи можна підписати на події
+const form = document.getElementById('name-form');
 
- */
-//1.Зареєструвати обробник події натискання миші на кнопку
-//2. Навісили обробник натискання миші накнопку
-function getAlert(event){
-    alert('Hello user')
+form.addEventListener('submit', consoleForm)
+
+//метод - preventDefoult() - не роби так більше (наприклад не перезавантажу сторінку)
+function consoleForm(event){
+    event.preventDefault()
     console.log(event);
+
+    const form = event.target;
+    const value = form[0].value;
+    console.log(value);
+    //щоб подивитись на нашу форму як на об'єкт
+    console.dir(form[0]);
 }
-const btn = document.getElementById('btn')
-console.log(btn);
-btn.addEventListener('click', getAlert)
-
-//-------------------------------------------------
-/*
-Зробіть кнопку, додайте id
-Напишіть функцію, яка виводит в консоль Привіт
-Навісити обробку події наведення миші на цю кнопку
-*/
-
-function getGreeting(event){
-    const but = event.target;
-    
-    if(but.style.backgroundColor === 'red'){
-        but.style.backgroundColor = 'unset';
-    }else{
-        but.style.backgroundColor = 'red';
-        
-    }
-}
-const button = document.getElementById('button');
-console.log(button);
-button.addEventListener('mouseenter',getGreeting)
-//--------------------------------------------------
-//При наведені на кнопку Ні - потрібно її приховати (display:'none')
-const noBtn = document.getElementById('no-btn');
-console.log(noBtn);
-
-function hidding(event){
-    console.log(event);
- //const noBut =event.target;
- //noBut.style.display = 'none' //(display:'none') приховати подію
- event.target.removeEventListener('mouseenter',hidding)
- console.log(test)
-}
-
-noBtn.addEventListener('mouseenter',hidding)
