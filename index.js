@@ -1,15 +1,43 @@
-const form = document.getElementById('name-form');
+const collection = document.getElementsByClassName('paragraph')
+console.log(collection);
+//Кожен наш параграф повинен бути зеленого кольору
 
-form.addEventListener('submit', consoleForm)
+//varius1
+//for(let i = 0; i < collection.length; i ++){
+    //collection[i].style.color = 'green'
+//}
+//------------------------------------------
 
-//метод - preventDefoult() - не роби так більше (наприклад не перезавантажу сторінку)
-function consoleForm(event){
-    event.preventDefault()
-    console.log(event);
-
-    const form = event.target;
-    const value = form[0].value;
-    console.log(value);
-    //щоб подивитись на нашу форму як на об'єкт
-    console.dir(form[0]);
+//varius2 через цикл for...of - спеціальний цикл. який перебирає об'єкт по ключам
+for(let p of collection){
+    p.style.color = 'green'
 }
+
+const btns = document.getElementsByTagName('button');
+const array = [...btns]
+console.log(btns);  //масивоподібний об'єкт
+console.log(array); //масив
+
+array.forEach((button)=>{
+    button.style.color = 'violet'
+})
+
+function backgroundBtn(event){
+   event.target.style.backgroundColor = 'yellow'
+}
+for(let b of btns){
+    b.addEventListener('click',backgroundBtn)
+}
+
+function hello (event){
+    console.log('Hello, user!');
+   event.target.removeEventListener('click', hello)
+}
+for(let btn of btns){ //btn- поточна переглядаєма кнопка
+ btn.addEventListener('click', hello)
+}
+
+
+
+
+
