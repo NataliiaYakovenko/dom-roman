@@ -7,31 +7,25 @@
     <script defer src="./index.js"></script>
   </head>
   <body>
-    <button>Click me 1</button>
-    <button class="super-btn">Click me 2</button>
-    <button id="btnbtn">Click me 3</button>
+  <h1>Конвертер валют</h1>
 
-    <article>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, id harum
-        nihil eius dolores corrupti omnis cumque. Ducimus, mollitia inventore?
-      </p>
-      <p class="paragraph">
-        Lorem ipsum Dolor sit amet consectetur adipisicing elit. Ab, id harum
-        nihil eius dolores corrupti omnis cumque. Ducimus, mollitia inventore?
-      </p>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, id harum
-        nihil eius dolores corrupti omnis cumque. Ducimus, mollitia inventore?
-      </p>
-      <p class="paragraph">
-        Lorem ipsum Dolor sit amet consectetur adipisicing elit. Ab, id harum
-        nihil eius dolores corrupti omnis cumque. Ducimus, mollitia inventore?
-      </p>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, id harum
-        nihil eius dolores corrupti omnis cumque. Ducimus, mollitia inventore?
-      </p>
-    </article>
+  <form id="currency-converter-form">
+    <label>
+      Сума конвертації:
+      <input type="number" id="amount" min="1"  required>
+    </label>
+
+    <label>
+      Оберіть валюту:
+      <select id="currency" required>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </label>
+
+    <button type="submit">Конвертувати</button>
+
+    <div id="result"></div>
+  </form>
   </body>
 </html>
