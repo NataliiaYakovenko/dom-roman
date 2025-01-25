@@ -1,13 +1,3 @@
 * {
     box-sizing: border-box;
   }
-
-body{
-    background-color: white;
-    color: black;   
-}
-
-.dark-mode{
-    background-color: rgb(1, 1, 46);
-    color: white;
-}
