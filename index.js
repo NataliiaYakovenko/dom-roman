@@ -1,19 +1,37 @@
-//Задача Зробити конвертер з градусів Цельсію на Фарингейти
-//Формула
-//(Температура в градусах Цельсія * 9/5) + 32
+/*
+Маємо div
+Маємо дві кнопки: 
+ - на одній кнопці написано "Зробити червоним"
+ - на другій кнопці написано "Зробити зеленим"
+З натисненням на кнопку, фоновий колір div p.1 
+має змінитись на відповідний колір вказаний на кнопці 
+*/
 
-const degrees = document.querySelector("#degrees-сelsius");
+const box = document.querySelector("#box");
+console.log(box.classList);
+//якщо ми хочемо видалити клас
+box.classList.remove("bg-color-red");
+console.log(box.classList);
 
-function fahrenheit(event) {
-  event.preventDefault();
+//робимо деструктуризацію
+const [red, green] = document.querySelectorAll(".btn");
 
-  const temperature = Number(document.querySelector("#temperature").value);
- 
-  //1°C = (1°C*9/5) + 32 = 33.8
-  const fahrenheitDegrees = (temperature * 9 / 5)  + 32;
-;
-  const result = document.querySelector("#result");
-  result.innerHTML = `${temperature}°C = ${fahrenheitDegrees.toFixed(2)}°F`;
+//на змінну red робимо обробник подій
+red.addEventListener("click", redBtnHandler);
+
+function redBtnHandler(event) {
+  //box.style.backgroundColor = 'red';
+
+  //або підключаєм стилі через метод classList.add
+  box.classList.toggle("bg-color-red");
 }
 
-degrees.addEventListener("submit", fahrenheit);
+//на змінну green робимо обробник подій
+green.addEventListener("click", greenBtnHandler);
+
+function greenBtnHandler(event) {
+  //box.style.backgroundColor = 'green';
+
+  //або підключаєм стилі через метод classList.add
+  box.classList.toggle("bg-color-green");
+}
