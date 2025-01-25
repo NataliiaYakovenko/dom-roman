@@ -1,37 +1,20 @@
 /*
-Маємо div
-Маємо дві кнопки: 
- - на одній кнопці написано "Зробити червоним"
- - на другій кнопці написано "Зробити зеленим"
-З натисненням на кнопку, фоновий колір div p.1 
-має змінитись на відповідний колір вказаний на кнопці 
+Створіть кнопку, яка буде змінювати теиу сайту в HTML
+
+JS
+Якщо ви натискаєте на цю кнопку  - на сайті вмикається темний режим
+(для тегу bady встановіть backgroundColor темного кольору
+а для тексту властивіть color встановіть white)
+
+Якщо ви натискаєте на цю кнопку ще раз на сайті вимикається темний режим
+через (toggle)
 */
+const btn = document.querySelector('#btn');
+const body = document.body;
 
-const box = document.querySelector("#box");
-console.log(box.classList);
-//якщо ми хочемо видалити клас
-box.classList.remove("bg-color-red");
-console.log(box.classList);
-
-//робимо деструктуризацію
-const [red, green] = document.querySelectorAll(".btn");
-
-//на змінну red робимо обробник подій
-red.addEventListener("click", redBtnHandler);
-
-function redBtnHandler(event) {
-  //box.style.backgroundColor = 'red';
-
-  //або підключаєм стилі через метод classList.add
-  box.classList.toggle("bg-color-red");
+btn.addEventListener('click', darkMode);
+function darkMode(event){
+  body.classList.toggle('dark-mode')
 }
 
-//на змінну green робимо обробник подій
-green.addEventListener("click", greenBtnHandler);
 
-function greenBtnHandler(event) {
-  //box.style.backgroundColor = 'green';
-
-  //або підключаєм стилі через метод classList.add
-  box.classList.toggle("bg-color-green");
-}
