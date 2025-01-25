@@ -7,25 +7,17 @@
     <script defer src="./index.js"></script>
   </head>
   <body>
-  <h1>Конвертер валют</h1>
+    <h1>Конвертер температури з Цельсій в Фарингейти</h1>
 
-  <form id="currency-converter-form">
-    <label>
-      Сума конвертації:
-      <input type="number" id="amount" min="1"  required>
-    </label>
+    <form id="degrees-сelsius">
+      <label>
+        Введіть температуру у градусах Цельсія:
+        <input type="number" id="temperature" min="1" required />
+      </label>
 
-    <label>
-      Оберіть валюту:
-      <select id="currency" required>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-      </select>
-    </label>
+      <button type="submit">Конвертувати</button>
 
-    <button type="submit">Конвертувати</button>
-
-    <div id="result"></div>
-  </form>
+      <div id="result"></div>
+    </form>
   </body>
 </html>
