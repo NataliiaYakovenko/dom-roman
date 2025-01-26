@@ -1,27 +1,22 @@
-//const event = new Event('click');
-//console.log(event.composedPath());
 
 const btn = document.querySelector('button');
+const div = document.querySelector('#root');
 
-btn.addEventListener('click',btnClickHandler)
-function btnClickHandler(event){
-  console.log('Hi from button click handler');
-//console.log(event.composedPath());
-//alert('Hello');
-//console.dir(event.target);//той на кому спрацювала подія, елемент до якого подія буде занурюватись
-//console.dir(event.currentTarget);//той кому належить EventListener, елемент, якому належав обробник подій
+function eventHandler(event){
+  //Target - на кому спрацювала подія
+  console.dir(event.currentTarget); //той кому належав обробник події
 }
+//capture:true - зміна проходження події
+//btn.addEventListener('click',eventHandler, {capture:true});
+//div.addEventListener('click',eventHandler, {capture:true});
+//document.body.addEventListener('click',eventHandler, {capture:true});
+//window.addEventListener('click',eventHandler, {capture:true});
 
-document.body.addEventListener('click',bodyClickHandler)
-function bodyClickHandler(event){
- console.log('Hi from body click handler');
- console.log(event.target);
- console.log(event.currentTarget);
+//once:true - обробник події після першого разу видаляється
+btn.addEventListener('click',eventHandler, {capture:true, once:true});
 
-}
 
-const clickEvent = new MouseEvent('click');
-//btn.dispatchEvent(clickEvent);
+
 
 //--------------------------------------------
 
