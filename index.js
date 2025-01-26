@@ -3,13 +3,23 @@
 
 const btn = document.querySelector('button');
 
-window.addEventListener('click',btnClickHander)
-function btnClickHander(event){
+btn.addEventListener('click',btnClickHandler)
+function btnClickHandler(event){
+  console.log('Hi from button click handler');
 //console.log(event.composedPath());
 //alert('Hello');
-console.dir(event.target);//той на кому спрацювала подія, елемент до якого подія буде занурюватись
-console.dir(event.currentTarget);//той кому належить EventListener, елемент, якому належав обробник подій
+//console.dir(event.target);//той на кому спрацювала подія, елемент до якого подія буде занурюватись
+//console.dir(event.currentTarget);//той кому належить EventListener, елемент, якому належав обробник подій
 }
+
+document.body.addEventListener('click',bodyClickHandler)
+function bodyClickHandler(event){
+ console.log('Hi from body click handler');
+ console.log(event.target);
+ console.log(event.currentTarget);
+
+}
+
 const clickEvent = new MouseEvent('click');
 //btn.dispatchEvent(clickEvent);
 
