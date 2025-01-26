@@ -1,24 +1,12 @@
-/*
-https://cdn.e-pet.com.ua/uploaded/2024/10/27/18/IMG_6436_Original-cGUpvY8x.jpg
 
-https://tvoemisto.tv/media/gallery/full/6/8/68822578388_o.jpg
-
-
-В HTML ми маємо елемент картинки img
-
-В HTML ми маємо дві кнопки
-Ці кнопки в дата - атрибутах містять посилання на певну картинку(адреса картинки)
-
-За натисненням на відповідну кнопку має відкритись (відобразитись в тезі img) відповідна цій кнопці картинка
-
-*/
-const[btn1,btn2] = document.querySelectorAll('button');
-
-btn1.addEventListener('click',clickHandler);
-btn2.addEventListener('click',clickHandler);
-
-function clickHandler({target}){
-  const img = target.parentNode.children[0];//наш шлях до картинки
-  console.log(target.dataset.src);// шлях до посилань на картинки
-  img.setAttribute('src',target.dataset.src)
+function creatDiv(){
+  const div = document.createElement('div'); //створюємо елемент упам'яті
+  div.classList.add('box') //до цього елементу приєднуємо стильовий клас
+  div.append('Hello, world!');// до цього елементу приєднуємо техстовий узел
+  document.body.append(div); // приєднуємо елемент до body
 }
+
+const btn = document.querySelector('button');
+btn.addEventListener('click',creatDiv)
+//------------------------------------------------------------------
+
