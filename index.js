@@ -13,9 +13,28 @@ function eventHandler(event){
 //window.addEventListener('click',eventHandler, {capture:true});
 
 //once:true - обробник події після першого разу видаляється
-btn.addEventListener('click',eventHandler, {capture:true, once:true});
+//btn.addEventListener('click',eventHandler, {capture:true, once:true});
 
 
+
+function eventHandlerButton(event){
+  console.log("hi from button handler")
+}
+
+btn.addEventListener('click', eventHandlerButton, {capture:true});
+
+//  event.stopPropagation() - зупиняє подію передчасно
+function eventHandlerBody(event){
+  console.log("hi from body handler")
+  event.stopPropagation()
+}  
+
+document.body.addEventListener('click',eventHandlerBody, {capture:true});
+
+/*
+В середиеі functionDeclaration i functionExpression - this це body
+Arrow function, this є window (браузер)
+ */
 
 
 //--------------------------------------------
