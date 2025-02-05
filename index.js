@@ -7,39 +7,42 @@
          <p class="description">Descroption for Nataliia</p>
       </article> */
 
-
 const root = document.querySelector("#root");
 
 function creatUserCard(user) {
-  //Створення article
-  const article = document.createElement("article");
-  article.classList.add("card-wrapper");
-
   //Створення img
   const img = document.createElement("img");
   img.setAttribute("src", user.profilePicture);
   img.setAttribute("alt", user.name);
   img.classList.add("card-image");
-
   //Створення h2
-  const h2 = document.createElement("h2");
-  h2.append(user.name);
-  h2.classList.add("username");
-
+  const h2 = creatElement('h2',{clasNames:['username']},user.name)
   //Створення параграфу
-  const p = document.createElement("p");
-  p.append(user.description);
-  p.classList.add("description");
-
-  //Прєднати до article елементи створені в пунктах 2-4 (img,h2,p)
-  article.append(img, h2, p);
-
-  //Повертаємо створений article
-return article;
+  const p = creatElement('p',{clasNames:['description']},user.description)
+  //Створюємо і повертаємо article, в який вкладені img, h2, p
+  return creatElement('article',{clasNames:['card-wrapper']},img, h2, p);
 }
 
 console.log(data);
-const cardArray = data.map((user)=>{
-  return creatUserCard(user)
-})
-root.append(...cardArray)
+const cardArray = data.map((user) => {
+  return creatUserCard(user);
+});
+root.append(...cardArray);
+
+
+/**
+ * 
+ * @param {String} type - тег елемента, який нам треба створити
+ * @param {String[]} clasNames - список класів, які потрібно додати до елемента
+ * @param  {...nodes} childNodes - список дочирніх вузлів
+ * @returns {HTMLElement}
+ */
+function creatElement(type, { clasNames }, ...childNodes) {
+  //type - назва тега
+  //clasNames - класи об'єктів
+  //...children - всі інші
+  const elem = document.createElement(type);
+  elem.classList.add(...clasNames);
+  elem.append(...childNodes);
+  return elem;
+}
