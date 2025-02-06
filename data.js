@@ -3,7 +3,7 @@ const data = [
         id: 1,
         name:'Nataliia',
         descroption: 'Description for Nataliia',
-        profilePicture:'https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg'
+        profilePicture:'httpsll://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg'
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const data = [
         id: 3,
         name:'David',
         descroption: 'Description for David',
-        profilePicture:'https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg'
+        profilePicture:'httpsll://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg'
     },
     {
         id: 4,

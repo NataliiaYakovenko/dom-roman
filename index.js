@@ -13,13 +13,13 @@ const root = document.querySelector("#root");
 
 function createUserCard(user) {
   //Створюємо обгорку для картинки
-  const image = createImageWrapper(user)
+  const imageWrapper = createImageWrapper(user)
   //Створення h2
   const h2 = createElement("h2", { classNames: ["username"] }, user.name);
   //Створення параграфу
   const p = createElement("p",{ classNames: ["description"] },user.description);
-  //Створюємо і повертаємо article, в який вкладені image, h2, p
-  return createElement("article",{ classNames: ["card-wrapper"] }, image, h2, p);
+  //Створюємо і повертаємо article, в який вкладені imageWrapper, h2, p
+  return createElement("article",{ classNames: ["card-wrapper"] }, imageWrapper, h2, p);
 }
 
 console.log(data);
@@ -53,6 +53,7 @@ function imageLoadHandler({target}) {
 function imageErrorHandler({target}) {
   target.remove();
   console.log("image loading has error");
+  imageWrapper.append(user.name[0])
 }
 
 function createUserImage(user) {
@@ -70,9 +71,26 @@ function createUserImage(user) {
 function createImageWrapper(user) {
  
   //Створення заглушки
-  const image = createElement("div", { classNames: ["image-wrapper"] });
-  image.setAttribute("id",`wrapper${user.id}`);
+  const imageWrapper = createElement("div", { classNames: ["image-wrapper"] });
+  imageWrapper.setAttribute("id",`wrapper${user.id}`);
+  //Визначаємо background-color заглушки з урахуванням імені користувача
+  imageWrapper.style.backgroundColor = stringToColour(user.name);
+
+
   //Створення img
   const img = createUserImage(user);
-  return image;
+  return imageWrapper;
+}
+
+function stringToColour(str) {
+  let hash = 0;
+  str.split('').forEach(char => {
+    hash = char.charCodeAt(0) + ((hash << 5) - hash)
+  })
+  let colour = '#'
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff
+    colour += value.toString(16).padStart(2, '0')
+  }
+  return colour
 }
